@@ -1,6 +1,7 @@
 ActiveAdmin.register TimeSlot do
   permit_params :slot, category_ids: [:id]
 
+  remove_filter :timeslots_guests
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

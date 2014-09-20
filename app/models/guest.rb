@@ -1,5 +1,5 @@
 class Guest < ActiveRecord::Base
-	has_and_belongs_to_many :time_slots
+	belongs_to :time_slot
 
 	validates :name, :email, presence: true
 end

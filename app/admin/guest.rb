@@ -1,6 +1,7 @@
 ActiveAdmin.register Guest do
   permit_params :name, :email, :phone, :status, :description, category_ids: [:id]
 
+  remove_filter :guests_time_slots
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
