@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   
   root "guest#index"
 
-  resources :timeslots, only: [:new, :create]
   resources :farmers, only: [:new, :create, :index]
   resources :guests, only: [:new, :create, :index]
 
