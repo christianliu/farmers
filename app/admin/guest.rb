@@ -1,19 +1,18 @@
 ActiveAdmin.register Guest do
   permit_params :name, :email, :phone, :status, :description, category_ids: [:id]
 
-  remove_filter :guests_time_slots
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
+  #Filers
+  filter :name
+  filter :status
 
+  index do
+    selectable_column
+    column :name
+    column :email
+    column :phone
+    column :status
+    column :time_slot
+    actions
+  end
 
 end

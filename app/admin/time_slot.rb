@@ -1,19 +1,24 @@
 ActiveAdmin.register TimeSlot do
   permit_params :slot, category_ids: [:id]
 
-  remove_filter :timeslots_guests
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
+  #Filters
+  filter :slot
 
+  index do
+    selectable_column
+    column :slot
+    column :guest
+    actions
+  end
+
+  show do
+    panel "Guests" do
+      table_for timeslot.guests do
+        column "name" do |guest|
+          guest.name
+        end
+      end
+    end
+  end
 
 end
