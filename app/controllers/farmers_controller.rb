@@ -1,4 +1,4 @@
-class FarmerController < ApplicationController
+class FarmersController < ApplicationController
   def new
     @farmer = Farmer.new
   end

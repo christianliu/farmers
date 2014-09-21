@@ -1,6 +1,42 @@
 ActiveAdmin.register Guest do
   permit_params :name, :email, :phone, :status, :description, category_ids: [:id]
 
+  action_item do
+      link_to "Send Confirmation Emails", "/"
+  end
+
+  action_item do
+      link_to "Send Reschedule Emails", "/"
+  end
+  
+  action_item do
+      link_to "Send Reminder Emails", "/"
+  end
+
+  batch_action :approve do |selection|
+      Guest.find(selection).each do |guest|
+        guest.status = "Approved"
+        guest.save
+      end
+      redirect_to :back
+  end
+
+  batch_action :deny do |selection|
+      Guest.find(selection).each do |guest|
+        guest.status = "Denied"
+        guest.save
+      end
+      redirect_to :back
+  end
+
+  batch_action :undecide do |selection|
+      Guest.find(selection).each do |guest|
+        guest.status = ""
+        guest.save
+      end
+      redirect_to :back
+  end
+
   #Filers
   filter :name
   filter :status

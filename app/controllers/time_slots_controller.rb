@@ -1,4 +1,4 @@
-class TimeSlotController < ApplicationController
+class TimeSlotsController < ApplicationController
   def new
   	@slot = TimeSlot.new
   end
