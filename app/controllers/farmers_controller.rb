@@ -4,7 +4,14 @@ class FarmersController < ApplicationController
   end
 
   def create
-  	@farmer = Farmer.create(guest_params)
+    farmer = Farmer.new(farmer_params)
+    
+    if farmer.save
+      flash[:success] = "Application successfully submitted."
+    else
+      flash[:error] = "There was an error with your application."
+    end
+    redirect_to root_path
   end
 
   def index
