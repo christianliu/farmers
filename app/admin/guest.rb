@@ -41,12 +41,6 @@ ActiveAdmin.register Guest do
   filter :name
   filter :status
 
-  controller do
-    def scoped_collection
-      resource_class.includes(:time_slot) # prevents N+1 queries to your database
-    end
-  end
-
   index do
     selectable_column
     column :status
