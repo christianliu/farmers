@@ -7,10 +7,10 @@ ActiveAdmin.register Farmer do
 
   index do
     selectable_column
+    column :status
     column :name
     column :email
     column :phone
-    column :status
     actions
   end
 end
