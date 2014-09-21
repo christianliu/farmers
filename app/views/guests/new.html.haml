@@ -2,4 +2,17 @@
   = f.label :name
   = f.text_field :name
 
+  = f.label :email
+  = f.text_field :email
+
+  = f.label :phone
+  = f.text_field :phone
+
+  = f.label :description
+  = f.text_field :description
+
+  = f.label "Time"
+  = f.select("time_slot_id", @times.collect {|t| [t.slot.strftime("%d %b %Y %l:%M %p"), t.id] }, {}, {multiple: true})
   
+  = f.submit
+
